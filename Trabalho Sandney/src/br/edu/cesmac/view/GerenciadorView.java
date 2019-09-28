@@ -43,5 +43,18 @@ public class GerenciadorView {
 
 		return opcao.nextInt();
 	}
+	
+	public int montarMenuNoticia() throws IOException {
+		System.out.println("==== Noticias ====");
+		System.out.println("Escolha a sua opção!");
+		System.out.println("1 - Adicionar");
+		System.out.println("2 - Alterar");
+		System.out.println("3 - Excluir");
+		System.out.println("4 - Listar");
+		System.out.println("5 - Sair");
+		System.out.println("Informe a sua opção: ");
+
+		return opcao.nextInt();
+	}
 
 }
