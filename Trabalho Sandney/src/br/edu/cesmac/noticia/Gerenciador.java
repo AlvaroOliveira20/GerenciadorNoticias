@@ -2,6 +2,9 @@ package br.edu.cesmac.noticia;
 
 import java.io.IOException;
 
+import br.edu.cesmac.enumMenu.EnumMenu.OpcoesMenu;
+import br.edu.cesmac.enumMenu.EnumMenu.OpcoesSubMenu;
+import br.edu.cesmac.enumMenu.EnumMenu.TestaEncontrado;
 import br.edu.cesmac.manipulador.ManipuladorEditoria;
 import br.edu.cesmac.manipulador.ManipuladorJornalista;
 import br.edu.cesmac.manipulador.ManipuladorNoticia;
@@ -28,79 +31,79 @@ public class Gerenciador {
 		int opcaoMenuPrincipal = 0;
 		int opcaoSubmenu = 0;
 
-		while (opcaoMenuPrincipal != 4) {
+		while (opcaoMenuPrincipal != OpcoesMenu.SAIR.getValor()) {
 			opcaoMenuPrincipal = gerenciadorView.montarMenuPrincipal();
 
-			if (opcaoMenuPrincipal == 1) {
+			if (opcaoMenuPrincipal == OpcoesMenu.EDITORIAS.getValor()) {
 
-				while (opcaoSubmenu != 5) {
+				while (opcaoSubmenu != OpcoesSubMenu.SAIR.getValor())  {
 					opcaoSubmenu = gerenciadorView.montarMenuEditoria();
 
-					if (opcaoSubmenu == 1) {
+					if (opcaoSubmenu == OpcoesSubMenu.ADICIONAR.getValor()) {
 						manipuladorEditoria.cadastrar(editoriaView.ler());
-					} else if (opcaoSubmenu == 2) {
+					} else if (opcaoSubmenu == OpcoesSubMenu.ALTERAR.getValor()) {
 						manipuladorEditoria.alterar(editoriaView.ler());
-					}else if (opcaoSubmenu == 3) {
+					}else if (opcaoSubmenu == OpcoesSubMenu.EXCLUIR.getValor()) {
 						manipuladorEditoria.listar();
 						Editoria e = manipuladorEditoria.getById(editoriaView.lerId());
 						
 						if (e == null) {
-							System.out.println("Editoria não encontrada!");
+							System.out.println(TestaEncontrado.EDITORIA.getValor());
 						} else {
 							manipuladorEditoria.excluir(editoriaView.ler());
 						}
 	
-					} else if (opcaoSubmenu == 4) {
+					} else if (opcaoSubmenu == OpcoesSubMenu.LISTAR.getValor()) {
 						manipuladorEditoria.listar();
 					}
 				}
 			}
 				
-				if (opcaoMenuPrincipal == 2) {
+				if (opcaoMenuPrincipal == OpcoesMenu.JORNALISTAS.getValor()) {
 
-					while (opcaoSubmenu != 5) {
+					while (opcaoSubmenu != OpcoesSubMenu.SAIR.getValor()) {
 						opcaoSubmenu = gerenciadorView.montarMenuJornalista();
 
-						if (opcaoSubmenu == 1) {
+						if (opcaoSubmenu == OpcoesSubMenu.ADICIONAR.getValor()) {
 							manipuladorJornalista.cadastrar(jornalistaView.ler());
-						} else if (opcaoSubmenu == 2) {
+						} else if (opcaoSubmenu == OpcoesSubMenu.ALTERAR.getValor()) {
 							manipuladorJornalista.alterar(jornalistaView.ler());
-						}else if (opcaoSubmenu == 3) {
+						}else if (opcaoSubmenu == OpcoesSubMenu.EXCLUIR.getValor()) {
 							manipuladorJornalista.listar();
 							Jornalista j = manipuladorJornalista.getById(jornalistaView.lerId());
 							
 							if (j == null) {
-								System.out.println("Jornalista não encontrado!");
+								System.out.println(TestaEncontrado.JORNALISTA.getValor());
 							} else {
 								manipuladorJornalista.excluir(jornalistaView.ler());
 							}
 		
-						} else if (opcaoSubmenu == 4) {
+						} else if (opcaoSubmenu == OpcoesSubMenu.LISTAR.getValor()) {
 							manipuladorJornalista.listar();
 						}
 					}
 				}
 				
-				if (opcaoMenuPrincipal == 3) {
+				if (opcaoMenuPrincipal == OpcoesMenu.NOTICIAS.getValor()) {
 
-					while (opcaoSubmenu != 5) {
+					while (opcaoSubmenu != OpcoesSubMenu.SAIR.getValor()) {
 						opcaoSubmenu = gerenciadorView.montarMenuNoticia();
 
-						if (opcaoSubmenu == 1) {
+						if (opcaoSubmenu == OpcoesSubMenu.ADICIONAR.getValor()) {
 							manipuladorNoticia.cadastrar(noticiaView.ler());
-						} else if (opcaoSubmenu == 2) {
+						} else if (opcaoSubmenu == OpcoesSubMenu.ALTERAR.getValor()) {
 							manipuladorNoticia.alterar(noticiaView.ler());
-						}else if (opcaoSubmenu == 3) {
+						}else if (opcaoSubmenu == OpcoesSubMenu.EXCLUIR.getValor()) {
 							manipuladorNoticia.listar();
 							Noticia n = manipuladorNoticia.getById(noticiaView.lerId());
 							
 							if (n == null) {
-								System.out.println("Noticia não encontrada!");
+								System.out.println(TestaEncontrado.NOTICIA.getValor());
 							} else {
 								manipuladorNoticia.excluir(noticiaView.ler());
 							}
 		
-						} else if (opcaoSubmenu == 4) {
+						} else if (opcaoSubmenu == OpcoesSubMenu.LISTAR.getValor()) {
 							manipuladorNoticia.listar();
 						}
 					}

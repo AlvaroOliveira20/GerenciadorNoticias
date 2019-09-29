@@ -3,6 +3,7 @@ package br.edu.cesmac.manipulador;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.cesmac.enumMenu.EnumMenu.Manipuladores;
 import br.edu.cesmac.model.Editoria;
 
 public class ManipuladorEditoria {
@@ -27,13 +28,13 @@ public class ManipuladorEditoria {
 	}
 
 	public void listar() {
-		System.out.println("=============== Editorias Cadatradas ===============");
+		System.out.println(Manipuladores.EDITORIA.getValor());
 
 		for(Editoria editoria : editorias) {
 			System.out.println("Código " + editoria.getIdEditoria() + " - " + editoria.getNome());
 		}
 		
-		System.out.println("=================================================== \n\n");
+		System.out.println(Manipuladores.RODAPE.getValor());
 	}
 	
 	public Editoria getById(int idEditoria) {

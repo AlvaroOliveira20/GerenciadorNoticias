@@ -3,6 +3,7 @@ package br.edu.cesmac.manipulador;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.cesmac.enumMenu.EnumMenu.Manipuladores;
 import br.edu.cesmac.model.Jornalista;
 
 public class ManipuladorJornalista {
@@ -27,13 +28,13 @@ public class ManipuladorJornalista {
 	}
 
 	public void listar() {
-		System.out.println("=============== Jornalistas Cadastrados ===============");
+		System.out.println(Manipuladores.JORNALISTAS.getValor());
 
 		for(Jornalista jornalista : jornalistas) {
 			System.out.println("Código " + jornalista.getIdJornalista() + " - " + jornalista.getNomeJornalista());
 		}
 		
-		System.out.println("=================================================== \n\n");
+		System.out.println(Manipuladores.RODAPE.getValor());
 	}
 	
 	public Jornalista getById(int idJornalista) {

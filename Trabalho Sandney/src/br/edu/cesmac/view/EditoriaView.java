@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+import br.edu.cesmac.enumMenu.EnumMenu.Dados;
 import br.edu.cesmac.model.Editoria;
 
 public class EditoriaView {
@@ -13,10 +14,10 @@ public class EditoriaView {
 	public Editoria ler() throws NumberFormatException, IOException {
 		Editoria editoria = new Editoria();
 		
-		System.out.println("Dados da Editoria");
-		System.out.println("Código: ");
+		System.out.println(Dados.EDITORIA.getValor());
+		System.out.println(Dados.CODIGO.getValor());
 		editoria.setIdEditoria(Integer.parseInt(buffReader.readLine()));
-		System.out.println("Nome: ");
+		System.out.println(Dados.NOME.getValor());
 		editoria.setNome(buffReader.readLine());		
 		
 		return editoria;
@@ -24,7 +25,7 @@ public class EditoriaView {
 	
 	public int lerId() throws NumberFormatException, IOException {
 		int id;
-		System.out.println("Informe o código da editoria!");
+		System.out.println(Dados.INFORMEEDITORIA.getValor());
 		return Integer.parseInt(buffReader.readLine());
 	}
 	
